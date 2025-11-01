@@ -1,55 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-    <style>
-        body {
-            padding: 30px;
-            background: linear-gradient(to right, #e2e2e2, #c9d6ff);
-        }
-        h1 {
-            text-align: center;
-        }
-        button {
-            color: blueviolet;
-            background-color: #c9d6ff;
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            text-decoration: underline;
-            color: blue;
-        }
-        button, div {
-            margin-left: 15%;
-            font-size: 20px;
-            padding: 10px;
-        }
-        div {
-            font-weight: 400;
-            color: rgb(12,11,11);
-        }
-        span {
-            font-weight: 600;
-            font-size: 22px;
-            color: black;
-        }
-    </style>
-</head>
-<body>
-    <h1>Welcome to the Homepage</h1>
-    <div>First Name: <span id="loggedUserFName"></span></div>
-    <div>Last Name: <span id="loggedUserLName"></span></div>
-    <div>Email: <span id="loggedUserEmail"></span></div>
-    <button id="logout">Logout</button>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homepage</title>
 
-    <!-- ✅ Script dipanggil di akhir agar tombol sudah siap -->
-    <script type="module" src="./homepage.js"></script>
+  <style>
+    /* --- Background dan layout umum --- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c9d6ff, #e2e2e2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* --- Kartu utama --- */
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      padding: 40px 60px;
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* --- Judul utama --- */
+    h1 {
+      margin-bottom: 25px;
+      color: #4a4a4a;
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+    }
+
+    /* --- Info pengguna --- */
+    .user-info {
+      text-align: left;
+      margin-bottom: 30px;
+      background-color: #f7f8ff;
+      padding: 15px 20px;
+      border-radius: 10px;
+    }
+
+    .user-info div {
+      margin: 10px 0;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .user-info span {
+      font-weight: 600;
+      color: #4b0082;
+    }
+
+    /* --- Tombol Logout --- */
+    #logout {
+      background: linear-gradient(90deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #logout:hover {
+      background: linear-gradient(90deg, #764ba2, #667eea);
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(118, 75, 162, 0.3);
+    }
+
+    /* --- Responsif --- */
+    @media (max-width: 480px) {
+      .card {
+        padding: 30px 25px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .user-info div {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <h1>Welcome to the Homepage</h1>
+
+    <div class="user-info">
+      <div>First Name: <span id="loggedUserFName">-</span></div>
+      <div>Last Name: <span id="loggedUserLName">-</span></div>
+      <div>Email: <span id="loggedUserEmail">-</span></div>
+    </div>
+
+    <button id="logout">Logout</button>
+  </div>
+
+  <!-- ✅ Script Firebase di-load terakhir -->
+  <script type="module" src="./homepage.js"></script>
 </body>
 </html>
